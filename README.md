@@ -4,6 +4,17 @@ Notes on coupling WRF, CROCO, and WW3 using OASIS for a UBUNTU 18.04 machine
 A mix of "Documentation for coupling with OASIS in CROCO, WRF, WW3" by Swen JULLIEN, Gildas CAMBON (March 7, 2018) and
 personal experience.
 
+# Details
+
+Time step in WRF and CROCO has to be a multiple of the coupling frequency (nancouple)
+
+Order of dimensions x - y. (41 42 for Benguela)
+Verify those in oce.nc and atm.nc
+
+mpirun -np 2 ./croco : -np 2 ./wrf.exe 
+
+CPLMASK to fit ocean model in WRF model
+
 # OASIS
 
 Donwload OASIS-MCT version 3
