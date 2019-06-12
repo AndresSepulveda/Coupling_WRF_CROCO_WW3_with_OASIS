@@ -287,6 +287,8 @@ $END
 ```
 ## OASIS - Create OASIS grid files form WRF
 
+Use: ./create_oasis_grids_for_wrf.sh wrfinput_d01 /home/mosa/COUPLED_BENGUELA/
+
 ```console
 #!/bin/bash
 set -x
@@ -416,6 +418,21 @@ echo ' '
 ```
 
 ## OASIS - Create restart from calm conditions
+
+Use:
+
+```console
+export varlist='WRF_d01_EXT_d01_SURF_NET_SOLAR WRF_d01_EXT_d01_EVAP-PRECIP WRF_d01_EXT_d01_SURF_NET_NON-SOLAR WRF_d01_EXT_d01_TAUX WRF_d01_EXT_d01_TAUY WRF_d01_EXT_d01_TAUMOD WRF_d01_EXT_d01_U_01 WRF_d01_EXT_d01_V_01'
+   ./create_oasis_restart_from_calm_conditions.sh wrfinput_d01 atm.nc wrf "$varlist"
+  
+
+export varlist='WW3_T0M1 WW3__OHS WW3_CDIR WW3_SDIR WW3__CHA WW3_TAWX WW3_TAWY WW3_TWOX WW3_TWOY'
+   ./create_oasis_restart_from_calm_conditions.sh $ww3file wav.nc ww3 "$varlist"
+  
+
+export   varlist='SRMSSTV0 SRMSSHV0 SRMVOCE0 SRMUOCE0'
+   ./create_oasis_restart_from_calm_conditions.sh croco_grd.nc oce.nc croco "$varlist"
+```
 
 ```console
 #!/bin/bash -e
