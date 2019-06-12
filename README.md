@@ -1,5 +1,5 @@
 # Coupling_WRF_CROCO_WW3_with_OASIS
-Notes on coupling WRF, CROCO, and WW3 using OASIS for a UBUNTU 18.04 machine
+Notes on coupling WRF, CROCO, and WW3 using OASIS for a UBUNTU 18.04 machine for the Benguela case
 
 A mix of "Documentation for coupling with OASIS in CROCO, WRF, WW3" by Swen JULLIEN, Gildas CAMBON (March 7, 2018) and
 personal experience.
@@ -566,6 +566,32 @@ echo ' '
 
 
 # WRF
+
+# WRF - Area used (larger than CROCO domain) - Deal overlap with CPLMASK
+
+```console
+&geogrid
+ parent_id         = 1,
+ parent_grid_ratio = 1,
+ i_parent_start    = 1,
+ j_parent_start    = 1,
+ e_we          = 100,
+ e_sn          = 117,
+ geog_data_res = '10m',
+ dx = 30000,
+ dy = 30000,
+ map_proj =  'lambert',
+ ref_lat   = -27.677,
+ ref_lon   = 15.892,
+ truelat1  = -27.677,
+ truelat2  = -27.677,
+ stand_lon = 15.892,
+ geog_data_path = '/home/mosa/WPS/WPS_GEOG',
+ opt_geogrid_tbl_path = '/home/mosa/Domains/Benguela/',
+ ref_x = 50.0,
+ ref_y = 58.5,
+/
+```
 
 # WRF - configure.wrf
 
