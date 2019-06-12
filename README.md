@@ -4,7 +4,7 @@ Notes on coupling WRF, CROCO, and WW3 using OASIS for a UBUNTU 18.04 machine for
 A mix of "Documentation for coupling with OASIS in CROCO, WRF, WW3" by Swen JULLIEN, Gildas CAMBON (March 7, 2018) and
 personal experience.
 
-# Details
+## Details
 
 Time step in WRF and CROCO has to be a multiple of the coupling frequency (nancouple)
 
@@ -62,7 +62,7 @@ compile_oa3-mct
 and file oasis_make.out to see if everything went ok
 
 
-# OASIS - namcouple file
+## OASIS - namcouple file
 
 ```console
 #########################################################################
@@ -285,7 +285,7 @@ DISTWGT LR SCALAR LATLON 1 4
 ###########################################################################
 $END
 ```
-# OASIS - Create OASIS grid files form WRF
+## OASIS - Create OASIS grid files form WRF
 
 ```console
 #!/bin/bash
@@ -415,7 +415,7 @@ echo 'DONE: grids.wrf.nc and masks.wrf.nc have been created in '$mydir
 echo ' '
 ```
 
-# OASIS - Create restart from calm conditions
+## OASIS - Create restart from calm conditions
 
 ```console
 #!/bin/bash -e
@@ -567,7 +567,7 @@ echo ' '
 
 # WRF
 
-# WRF - Area used (larger than CROCO domain) - Deal overlap with CPLMASK
+## WRF - Area used (larger than CROCO domain) - Deal overlap with CPLMASK
 
 ```console
 &geogrid
@@ -593,7 +593,7 @@ echo ' '
 /
 ```
 
-# WRF - configure.wrf
+## WRF - configure.wrf
 
 ```console
 # configure.wrf
@@ -1149,7 +1149,7 @@ module_configure.o :
 	$(FC) -c $(PROMOTION) $(FCSUFFIX) $(FCNOOPT) $(FCBASEOPTS) $(MODULE_DIRS) $*.f90
 ```
 
-# WRF - Create CPLMASK
+## WRF - Create CPLMASK
 
 Use something similar to this program named make_CPLMASK.m
 
@@ -1166,7 +1166,7 @@ nc{'CPLMASK'}(:,1,:,:)=cp;
 close(nc)
 ```
 
-# WRF - namelist.input
+## WRF - namelist.input
 
 To add variable SST update
 
@@ -1196,7 +1196,7 @@ sst_update               = 1,
 
 Define MPI and OA_COUPLING in cppdefs.h
 
-# CROCO - cppdefs.h
+## CROCO - cppdefs.h
 
 ```console
                       /* Parallelization */
@@ -1214,7 +1214,7 @@ Define MPI and OA_COUPLING in cppdefs.h
 # undef  OW_COUPLING
 ```
 
-# CROCO - jobcomp
+## CROCO - jobcomp
 
 ```console
 NETCDFLIB="-L/home/mosa/libraries/netcdf/lib -lnetcdf"
