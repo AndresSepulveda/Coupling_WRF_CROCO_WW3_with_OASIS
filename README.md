@@ -15,9 +15,37 @@ mpirun -np 2 ./croco : -np 2 ./wrf.exe
 
 CPLMASK to fit ocean model in WRF model
 
+# .bashrc
+
+```console
+export NETCDF_LIBDIR=/home/mosa/netcdf-3.6.3/lib
+export NETCDF_INCDIR=/home/mosa/netcdf-3.6.3/include
+
+export DIR=/home/mosa/libraries
+export CC=gcc
+export CXX=g++
+export FC=gfortran
+export FCFLAGS=-m64
+export F77=gfortran
+export FFLAGS=-m64
+
+export PATH=$DIR/netcdf/bin:$PATH
+export NETCDF=$DIR/netcdf
+
+export LDFLAGS=-L$DIR/grib2/lib 
+export CPPFLAGS=-I$DIR/grib2/include 
+
+export NETCDF_classic=1
+
+export JASPERLIB=$DIR/grib2/lib
+export JASPERINC=$DIR/grib2/include
+
+export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+```
+
 # OASIS
 
-Donwload OASIS-MCT version 3
+Download OASIS-MCT version 3
 
 ```console
 cd oasis
@@ -173,7 +201,7 @@ and file oasis_make.out to see if everything went ok
 # TAUX : zonal stress (N.m-2)
 #~~~~~~~~~~~
 WRF_d01_EXT_d01_TAUX RRMTAUX0 1 3600 1 atm.nc EXPORTED
-56 50 41 42 atmt ocnt  LAG=150
+100 117 41 42 atmt ocnt  LAG=180
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -182,7 +210,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # TAUY : meridional stress (N.m-2)
 #~~~~~~~~~~~
 WRF_d01_EXT_d01_TAUY RRMTAUY0 1 3600 1 atm.nc EXPORTED
-56 50 41 42 atmt ocnt  LAG=150
+100 117 41 42 atmt ocnt  LAG=180
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -191,7 +219,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # TAUMOD : stress module (N.m-2)
 #~~~~~~~~~~~
 WRF_d01_EXT_d01_TAUMOD RRMTAUM0 1 3600 1 atm.nc EXPORTED
-56 50 41 42 atmt ocnt  LAG=150
+100 117 41 42 atmt ocnt  LAG=180
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -200,7 +228,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # EVAP-PRECIP : E-P flux (kg.m-2.s-1)
 #~~~~~~~~~~~
 WRF_d01_EXT_d01_EVAP-PRECIP RRMEVPR0 1 3600 1 atm.nc EXPORTED
-56 50 41 42 atmt ocnt  LAG=150
+100 117 41 42 atmt ocnt  LAG=180
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -209,7 +237,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # NET SOLAR FLUX (W.m-2)
 #~~~~~~~~~~~
 WRF_d01_EXT_d01_SURF_NET_SOLAR RRMSRFL0 1 3600 1 atm.nc EXPORTED
-56 50 41 42 atmt ocnt  LAG=150
+100 117 41 42 atmt ocnt  LAG=180
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -218,7 +246,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # NET NON-SOLAR FLUX (W.m-2)
 #~~~~~~~~~~~
 WRF_d01_EXT_d01_SURF_NET_NON-SOLAR RRMSTFL0 1 3600 1 atm.nc EXPORTED
-56 50 41 42 atmt ocnt  LAG=150
+100 117 41 42 atmt ocnt  LAG=180
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -231,7 +259,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # SST (K)
 #~~~~~~~~~~~
 SRMSSTV0 WRF_d01_EXT_d01_SST 1 3600 1 oce.nc EXPORTED
-41 42 56 50 ocnt atmt LAG=3600
+41 42 100 117 ocnt atmt LAG=3600
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -240,7 +268,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # UOCE : zonal current (m.s-1)
 #~~~~~~~~~~~
 SRMUOCE0 WRF_d01_EXT_d01_UOCE 1 3600 1 oce.nc EXPORTED
-41 42 56 50 ocnt atmt LAG=3600
+41 42 100 117 ocnt atmt LAG=3600
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
@@ -249,7 +277,7 @@ DISTWGT LR SCALAR LATLON 1 4
 # VOCE : meridonal current (m.s-1)
 #~~~~~~~~~~~
 SRMVOCE0 WRF_d01_EXT_d01_VOCE 1 3600 1 oce.nc EXPORTED
-41 42 56 50 ocnt atmt LAG=3600
+41 42 100 117 ocnt atmt LAG=3600
 R  0  R  0
 SCRIPR
 DISTWGT LR SCALAR LATLON 1 4
