@@ -1264,3 +1264,11 @@ PRISM_ROOT_DIR=/home/mosa/compile_oa3-mct
 ```
 
 # WW3
+
+# Errata Compendium
+
+Check for error messages in the following files:
+rsl.error.0000 (WRF)
+debug.root.01 (OASIS)
+nout.000000   (OASIS)
+
