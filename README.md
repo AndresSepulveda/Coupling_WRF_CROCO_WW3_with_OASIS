@@ -6,7 +6,8 @@ personal experience.
 
 ## Details
 
-Time step in WRF and CROCO has to be a multiple of the coupling frequency (nancouple)
+Time step in WRF and CROCO has to be a multiple of the coupling frequency (nancouple). For example
+180s (WRF), 3600 (CROCO), 3600 (OASIS).
 
 Order of dimensions x - y. (41 42 for Benguela)
 Verify those in oce.nc and atm.nc
