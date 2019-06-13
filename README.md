@@ -2,7 +2,7 @@
 Notes on coupling WRF, CROCO, and WW3 using OASIS for a UBUNTU 18.04 machine for the Benguela case
 
 A mix of "Documentation for coupling with OASIS in CROCO, WRF, WW3" by Swen JULLIEN, Gildas CAMBON (March 7, 2018) and
-personal experience.
+personal experience. Most ideas were contributed by Swen Jullien, Gildas Cambon, Lionel Renault, and Rachid Benshila.
 
 ## Details
 
@@ -10,11 +10,16 @@ Time step in WRF and CROCO has to be a multiple of the coupling frequency (nanco
 180s (WRF), 3600 (CROCO), 3600 (OASIS).
 
 Order of dimensions x - y. (41 42 for Benguela)
-Verify those in oce.nc and atm.nc
+Use values that appear in in oce.nc and atm.nc
 
 mpirun -np 2 ./croco : -np 2 ./wrf.exe 
 
-CPLMASK to fit ocean model in WRF model
+CPLMASK to fit ocean model in WRF model.
+
+CROCO domain should be smaller than the WRF domain, to avoit the sponge layer in WRF, by at leas five grid points (LR), and to avoid different SST influence in WRF due to drift in the coupled (vs non-coupled) regions.
+
+WRF should be processed with SST data. Given that sst_update = 1, is in the namelist.input, the non-coupled part of the WRF domain expects SST info in the auxiliar input files.
+
 
 # .bashrc
 
