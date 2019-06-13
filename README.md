@@ -1223,6 +1223,21 @@ in &physics
 sst_update               = 1,
 ```
 
+get SST files in grib format using
+
+```console
+#!bin/csh
+#
+# Get SST for a certain date
+#
+# 28/05/2015 Andres Sepulveda - University of Concepcion (andres@dgeo.udec.cl)
+#
+set f=20000124
+set URL = "ftp://polar.ncep.noaa.gov/pub/history/sst/"
+set WGET=/usr/bin/wget
+
+       $WGET -t 0 ${URL}/rtg_sst_grb_0.5.${f}
+```
 
 
 # CROCO
