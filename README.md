@@ -357,8 +357,8 @@ fi
 # ------------------------------------------------------------------------------ #
 
 mytmpgrd=$mydir/grd_tmp.nc
-grdfile=$mydir/grids.wrf.nc
-mskfile=$mydir/masks.wrf.nc
+grdfile=$mydir/grids.nc
+mskfile=$mydir/masks.nc
 
 wrflon=XLONG
 wrflat=XLAT
