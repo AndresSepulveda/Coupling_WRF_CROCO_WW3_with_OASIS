@@ -1265,10 +1265,10 @@ Define MPI and OA_COUPLING in cppdefs.h
 ## CROCO - jobcomp
 
 ```console
-NETCDFLIB="-L/home/mosa/libraries/netcdf/lib -lnetcdf"
-NETCDFINC="-I/home/mosa/libraries/netcdf/include"
+#NETCDFLIB="-L/home/mosa/libraries/netcdf/lib -lnetcdf"
+#NETCDFINC="-I/home/mosa/libraries/netcdf/include"
 NETCDFLIB=$(nf-config --flibs)
-NETCDFINC=-I$(nf-config --includedir)
+NETCDFINC=-I$(nf-config --includedir)      #These are the libraries used to compile OASIS
 #
 # set MPI directories if needed
 #
