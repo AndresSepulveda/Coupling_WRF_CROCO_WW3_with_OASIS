@@ -618,6 +618,35 @@ echo ' '
 
 ## WRF - configure.wrf
 
+### Add
+
+OA3MCT_ROOT_DIR = /home/mosa/compile_oa3-mct
+
+### Change
+
+From: CFLAGS          =    $(CFLAGS_LOCAL) -DDM_PARALLEL  \
+
+To:   CFLAGS          =    $(CFLAGS_LOCAL) -DDM_PARALLEL  -DSTUBMPI \
+
+From:  ARCH_LOCAL      =       -DNONSTANDARD_SYSTEM_SUBR  -DWRF_USE_CLM
+
+To:    ARCH_LOCAL      =       -DNONSTANDARD_SYSTEM_FUNC  -DWRF_USE_CLM -Dkey_cpp_oasis3
+
+From:                 -I$(WRF_SRC_ROOT_DIR)/chem -I$(WRF_SRC_ROOT_DIR)/inc \
+                      -I$(NETCDFPATH)/include \
+
+To:                   -I$(WRF_SRC_ROOT_DIR)/chem -I$(WRF_SRC_ROOT_DIR)/inc \
+		      -I$(OA3MCT_ROOT_DIR)/build/lib/psmile.MPI1 \
+                      -I$(NETCDFPATH)/include \
+
+From:  LIB_EXTERNAL    = \
+                      -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/home/mosa/libraries/netcdf/lib -lnetcdff -lnetcdf
+		      
+To: LIB_EXTERNAL    = \
+                      -L$(WRF_SRC_ROOT_DIR)/external/io_netcdf -lwrfio_nf -L/home/mosa/libraries/netcdf/lib -lnetcdff -lnetcdf    \
+		      -L$(OA3MCT_ROOT_DIR)/lib -lpsmile.MPI1 -lmct -lmpeu -lscrip 
+
+
 ```console
 # configure.wrf
 #
