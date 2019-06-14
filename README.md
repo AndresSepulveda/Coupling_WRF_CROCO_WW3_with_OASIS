@@ -637,6 +637,7 @@ From:                 -I$(WRF_SRC_ROOT_DIR)/chem -I$(WRF_SRC_ROOT_DIR)/inc \
 
 To:                   -I$(WRF_SRC_ROOT_DIR)/chem -I$(WRF_SRC_ROOT_DIR)/inc \
 		      -I$(OA3MCT_ROOT_DIR)/build/lib/psmile.MPI1 \
+	 	      -I$(OA3MCT_ROOT_DIR)/build/lib/mct \    
                       -I$(NETCDFPATH)/include \
 
 From:  LIB_EXTERNAL    = \
