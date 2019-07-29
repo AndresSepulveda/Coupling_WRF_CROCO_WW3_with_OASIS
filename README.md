@@ -1317,8 +1317,25 @@ PRISM_ROOT_DIR=/home/mosa/compile_oa3-mct
 
 # Errata Compendium
 
+1)
 Check for error messages in the following files:
 rsl.error.0000 (WRF)
 debug.root.01 (OASIS)
 nout.000000   (OASIS)
 
+2)
+
+From Rachid BEnshila
+"I started back from your Benguela configuration for WRF, 
+and the standard one for CROCO (not the same grid one). 
+For what I saw, the pb we had was when oasis was trying 
+to build its interpolation weights, the code stopped there. 
+I changed to another method, just to check, and it's running.
+I changed in the namcouple for oasis:
+DISTWGT LR SCALAR LATLON 1 4
+to
+BILINEAR LR SCALAR LATLON 1 4
+"
+
+3)
+ERROR in MPI_Setup: number of MPI-nodes should be   1 instead of  2
