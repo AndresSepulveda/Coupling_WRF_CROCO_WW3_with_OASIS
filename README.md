@@ -1339,3 +1339,6 @@ BILINEAR LR SCALAR LATLON 1 4
 
 3)
 ERROR in MPI_Setup: number of MPI-nodes should be   1 instead of  2
+
+   Verify the number of CPUs declared for CROCO in param.h
+   Notice that is possible to declare just one CPU and use MPI paralelization.
