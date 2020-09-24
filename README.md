@@ -55,7 +55,7 @@ Download OASIS-MCT version 3
 
 ```console
 cd oasis
-svn checkout https://oasis3mct.cerfacs.fr/svn/branches/OASIS3-MCT_3.0_branch
+svn checkout http://oasis3mct.cerfacs.fr/svn/branches/OASIS3-MCT_3.0_branch
 cd $HOME/oasis/OASIS3-MCT_3.0_branch/oasis3-mct/util/make_dir
 make realclean -f TopMakefileOasis3 > oasis_clean.out
 make -f TopMakefileOasis3 > oasis_make.out
